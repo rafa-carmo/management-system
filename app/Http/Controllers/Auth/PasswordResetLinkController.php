@@ -17,8 +17,13 @@ class PasswordResetLinkController extends Controller
      */
     public function create(): Response
     {
+        $messages = [
+                "forgot-message" => __("auth.forgot-message"),
+                "send-email-reset-password" => __("auth.send-email-reset-password")
+            ];
         return Inertia::render('Auth/ForgotPassword', [
             'status' => session('status'),
+            "messages" => $messages
         ]);
     }
 
